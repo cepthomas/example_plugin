@@ -141,14 +141,9 @@ please switch to tags now.
 ```
 
 
-## Simultaneous ======================
+## Simultaneous ==========
 
 - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
-
-Sublime Forum   cepthomas@gmail.com     sunupbar_9
-
-
-
 
 
 
