@@ -1,0 +1,19 @@
+[
+    {
+        "caption": "The Best Plugin: Run",
+        "command": "example_run"
+    },
+    {
+        "caption": "The Best Plugin: Terminal",
+        "command": "example_terminal"
+    },
+    {
+        "caption": "The Best Plugin: Tree",
+        "command": "example_tree"
+    },
+    {
+        "caption": "The Best Plugin: Edit Settings",
+        "command": "edit_settings",
+        "args": { "base_file": "${packages}/example_plugin/example_plugin.sublime-settings", "default": "{\n$0\n}\n" }
+    }
+]    
