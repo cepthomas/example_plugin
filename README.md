@@ -5,9 +5,9 @@ submission to Package Control. It's primarily focused on pure python functional 
 those with binaries, syntax, and color schemes are a bit different - maybe later. Adjust to taste.
 
 Caveats:
-- This supposes GitHub only. Is BitBucket pertinent?
-- Doesn't address [dependencies.json](https://packagecontrol.io/docs/dependencies).
-- Doesn't address [messages.json](https://packagecontrol.io/docs/messaging).
+- This supports GitHub only. BitBucket should be straightforward.
+- Doesn't discuss [dependencies.json](https://packagecontrol.io/docs/dependencies).
+- Doesn't discuss [messages.json](https://packagecontrol.io/docs/messaging).
 
 
 ## Overview
@@ -133,18 +133,27 @@ My package is similar to ... However it should still be added because ...
      and their visibility is conditional. Space in this menu is limited!
 **)  There aren't enough keys for all packages, you'd risk overriding those of other packages.
      You can put commented out suggestions in a keymap file, and/or explain how to create bindings in your README.
-***) We have hundreds of color schemes,  and plenty of scopes to make any syntax work. 
+***) We have hundreds of color schemes, and plenty of scopes to make any syntax work. 
 
 For bonus points also considered how the review guidelines apply to your package:
 https://github.com/wbond/package_control_channel/wiki#reviewing-a-package-addition
 
 For updates to existing packages: If your package isn't using tag based releases, please switch to tags now.
- -->
+-->
 
 [1]: https://packagecontrol.io/docs/submitting_a_package
 [2]: https://semver.org
 [3]: https://www.git-scm.com/docs/gitattributes#_export_ignore
 ```
+
+## Updating a Package
+
+To update a previously published package simply update the plugin code, push and
+tag with the new version number. No need to touch the `package_control_channel` contents.
+Package Control will update the local user's copy on a periodic basis.
+
+It's probably polite to inform the user using the `messages.json` mechanism.
+
 
 ## Simultaneous Packages
 
@@ -159,7 +168,7 @@ https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/propos
 ## Package Metadata
 
 Package Control generates `package-metadata.json` which is added to the final package.
-Most fields come from your repository entry except as noted.
+Most fields come from your repository.json entry except as noted.
 Note that not all fields are required and some may not be present depending on the
 repository schema the plugin was created with.
 
@@ -169,13 +178,12 @@ repository schema the plugin was created with.
     "platforms":["windows", "linux"],
     "version": "1.2.3",  // Most recent semantic version tag in the repo.
     "sublime_text": ">4000",
-    "python_version": "3.3", // From .python-version if available.
+    "python_version": "3.3", // From .python-version if available?
     "url": "https://github.com/cepthomas/example_plugin",
     "issues": "https://github.com/cepthomas/example_plugin/issues",
     "author": ["cepthomas"],
     "labels": ["best", "ever"],
-    // TODO not sure what goes in these two. It appears dependencies was in earlier schemas only
-    // and was replaced by libraries in later schemas.
+    // It appears dependencies was in earlier schemas and was replaced by libraries in later schemas.
     "dependencies": ["???"],
     "libraries": ["???"],
     "install_time": 123.456, // From Package Control.
@@ -184,20 +192,16 @@ repository schema the plugin was created with.
 }
 ```
 
-## Update a Package
-
-TODO Guessing it looks pretty much like first submission?
-- Update plugin code. Push and tag with new version number.
-- Update package_control_channel. TODO need to touch it?
-
 
 # All The Files
 
 ## User Data
 
-Nearly all of the interesting files for users live in `$APPDATA\Sublime Text`.
+Nearly all of the interesting files for users live here.
 
 ```
+$APPDATA\Sublime Text
+|
 +---Installed Packages --> Installed by Sublime or via Package Control.
 |       *.sublime-package
 |       
@@ -209,9 +213,10 @@ Nearly all of the interesting files for users live in `$APPDATA\Sublime Text`.
 |       Session.sublime_session --> Contains project history - edit with different editor to clean up.
 |       *.sublime_session --> Backups and caches.
 |       
-\---Packages --> Loose packages, not from Package Control
+\---Packages --> Loose packages, not from Package Control. Where you create your plugin.
     |   
-    +---Default --> To override the builtin menus, first copy them here and comment out exclusions.
+    +---Default --> To override the builtin menus, first copy them here from Default.sublime-package
+                    and comment out your exclusions.
     |       Context.sublime-menu
     |       Side Bar.sublime-menu
     |       
@@ -226,12 +231,12 @@ Nearly all of the interesting files for users live in `$APPDATA\Sublime Text`.
     |   |   README.md
     |   |   source1.py
     |   |   source2.py
+    |   |   README.md --> This file.
     |   |   --> Could also have stuff like:
     |   |   *.tmLanguage
     |   |   *.sublime-syntax
     |   |   *.sublime-color-scheme
     |   |   *.sublime-keymap
-    |   |   README.md
     |   |   
     |   \---test
     |           some_test_code.py
@@ -249,24 +254,29 @@ Nearly all of the interesting files for users live in `$APPDATA\Sublime Text`.
 
 ## ST Executable Dir
 
- X is 3 and/or 8.
-
 ```
+$EXEDIR\Sublime Text
+|
 |   subl.exe
 |   sublime_text.exe
 |   sublime.py
 |   sublime_plugin.py
-|   plugin_host-3.X.exe
-|   python3X.dll
+|   plugin_host-3.3.exe
+|   plugin_host-3.8.exe
+|   python33.dll
+|   python38.dll
 |   ...
 +---Lib
-|   |   python3.X.zip
 |   +---python3
-|   \---python3X
+|   \---python33
+|           sublime.py
+|           sublime_plugin.py
+|           sublime_types.py
+|   \---python38
 |           sublime.py
 |           sublime_plugin.py
 |           sublime_types.py
 \---Packages --> factory defaults
-        Default.sublime-package  --> default ST internals and packages
+        Default.sublime-package  --> Default ST internals and packages.
         *.sublime-package
 ```
