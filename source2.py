@@ -13,7 +13,7 @@ class ExampleRunCommand(sublime_plugin.TextCommand):
     '''Doc'''
 
     def run(self, edit):
-        sublime.message_dialog('Run1')
+        sublime.message_dialog('Run!!')
 
 
 #-----------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ class ExampleTerminalCommand(sublime_plugin.TextCommand):
     '''Doc'''
 
     def run(self, edit):
-        sublime.message_dialog('Terminal!')
+        sublime.message_dialog('Terminal!!')
 
 
 #-----------------------------------------------------------------------------------
@@ -29,4 +29,4 @@ class ExampleTreeCommand(sublime_plugin.TextCommand):
     '''Doc'''
 
     def run(self, edit):
-        sublime.message_dialog('Tree!')
+        sublime.message_dialog('Tree!!')
