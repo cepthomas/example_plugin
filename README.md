@@ -15,7 +15,7 @@ Note that this addresses GitHub only. BitBucket should be a straightforward tran
 
 ## Installation
 From the Command Palette, run `Package Control: Install Package` command.
-In the packages list, find the package name you aare interested in and install it.
+In the packages list, find the package name you are interested in and install it.
 
 ## Usage
 
@@ -166,7 +166,7 @@ things that need to happen. Instead of working directly on the fork and issuing 
 from there, you need to branch your fork for each plugin. To submit a branch, switch to it,
 run `ChannelRepositoryTools: Test Default Channel`, push, and PR.
 
-Like this: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
+Ref: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
 
 
 ## Package Metadata
