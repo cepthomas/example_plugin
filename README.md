@@ -1,29 +1,27 @@
-# Best Ever Plugin for Sublime Text
+# Example Sublime Text Plugin 
 
 This enumerates some of the content that may be needed to build a plugin suitable for
 submission to Package Control. It's primarily focused on pure python functional plugins;
-those with binaries, syntax, and color schemes are a bit different - maybe later. Adjust to taste.
+those with binaries, syntax, and color schemes are a bit different - maybe doc later.
+Adjust to taste.
 
-Caveats:
-- This supports GitHub only. BitBucket should be straightforward.
-- Doesn't discuss [dependencies.json](https://packagecontrol.io/docs/dependencies).
-- Doesn't discuss [messages.json](https://packagecontrol.io/docs/messaging).
-
-
-## Overview
-Use this first section to describe what it does at a fairly high level.
-- `Best Ever Plugin` is the human-friendly name, and appears in menus and Command Palette.
+For this example, names are:
+- `Best Ever Plugin` is the human-friendly name, and appears in menus and the Command Palette.
 - `example_plugin` is the repo name.
+
+Note that this addresses GitHub only. BitBucket should be a straightforward translation.
+
 
 ## Installation
 From the Command Palette, run `Package Control: Install Package` command.
-In the packages list, find the package name you aare interested i and install it.
+In the packages list, find the package name you aare interested in and install it.
 
 ## Usage
 
 Add detail to the Overview such as how-to, images, videos, references, caveats, ...
 
-## Commands
+## Commands and Menus
+
 Describe the commands supplied by this package and how they are presented in menus.
 
 | Command              | Description      | Args             |
@@ -42,12 +40,13 @@ Suggest the entries the user can add to their own `Context.sublime-menu` files. 
 { "caption": "Tree", "command": "example_tree" },
 ```
 
-While not quite as critical, it's still generally a good idea to do the same for the other `*.sublime-menu`
-files. One exception to that is `Main.sublime-menu` which should be used minimally to provide `Preferences`
-for the Package - [See this](Main.sublime-menu).
+While not quite as critical, it's still generally a good idea to do the same for the other
+`*.sublime-menu` files. One exception to that is `Main.sublime-menu` which should be used
+minimally to provide `Preferences` for the Package - [like this](Main.sublime-menu).
 
 Finally, you can optionally include `Default.sublime-commands` to populate the Command Palette.
-Some packages prefer Main and Context menus instead. Note that `Default` is convention; any name will work.
+Some packages prefer to use only Main and Context menus instead. Note that `Default` is 
+only convention; any name will work.
 
 
 ## Settings
@@ -60,17 +59,18 @@ Provide a description of all settings in your `example_plugin.sublime-settings` 
 | example_size      | words...         | words...       |
 
 
-# Publishing to Package Control
+# Publishing To Package Control
 
-Most of this is covered well in [Submitting A Package](https://packagecontrol.io/docs/submitting_a_package)
-but a few notes are worth mentioning.
+Most of this is covered well in https://packagecontrol.io/docs/submitting_a_package but a few notes are worth mentioning.
+
+It is assumed you have forked https://github.com/wbond/package_control_channel.
 
 ## Package Repository
 
 To add a package, you add an entry to one of the `package_control_channel\repository\*.json` files.
 The specific file is the one with the first letter of the `name`. In our case it would go in `b.json`
 
-A basic and usually adequate repository entry is (for this example plugin):
+A basic and usually adequate repository entry is (for this example):
 ```json
 {
     "name": "Best Ever Plugin",
@@ -93,7 +93,9 @@ Labels should be taken from a short list of standard names. At this writing ther
 different names in use, with many being something no one will ever search on. And keep them short:
 use `debug` not `debugger` and be found.
 
-For power users, [more options are avaiable](https://github.com/wbond/package_control/blob/master/example-repository.json).
+For power users, more options are described here:
+https://github.com/wbond/package_control/blob/master/example-repository.json.
+
 
 ## Questionnaire
 
@@ -152,17 +154,18 @@ To update a previously published package simply update the plugin code, push and
 tag with the new version number. No need to touch the `package_control_channel` contents.
 Package Control will update the local user's copy on a periodic basis.
 
-It's probably polite to inform the user using the `messages.json` mechanism.
+Depending on the scope of the change, it may be polite to inform the user using the
+https://packagecontrol.io/docs/messaging capability.
 
 
-## Simultaneous Packages
+## Multiple Package Development
 
 If you are developing more than one package at the same time, there are a couple of other
 things that need to happen. Instead of working directly on the fork and issuing a PR
 from there, you need to branch your fork for each plugin. To submit a branch, switch to it,
 run `ChannelRepositoryTools: Test Default Channel`, push, and PR.
 
-https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
+Like this: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
 
 
 ## Package Metadata
@@ -184,6 +187,7 @@ repository schema the plugin was created with.
     "author": ["cepthomas"],
     "labels": ["best", "ever"],
     // It appears dependencies was in earlier schemas and was replaced by libraries in later schemas.
+    // See https://packagecontrol.io/docs/dependencies.
     "dependencies": ["???"],
     "libraries": ["???"],
     "install_time": 123.456, // From Package Control.
@@ -242,13 +246,13 @@ $APPDATA\Sublime Text
     |           some_test_code.py
     |           
     \---User --> 
-            *.sublime-settings
+            *.sublime-settings --> User settings for installed packages.
             Context.sublime-menu --> Add stuff to the default menu.
             Main.sublime-menu --> Ditto.
             Side Bar.sublime-menu --> Ditto.
             Tab Context.sublime-menu --> Ditto.
-            My.sublime-color-scheme --> Personal custom.
-            Default (Windows/Linux/OSX).sublime-keymap --> Personal custom.
+            My.sublime-color-scheme --> Personal/custom.
+            Default (Windows/Linux/OSX).sublime-keymap --> Personal/custom.
 ```
 
 
