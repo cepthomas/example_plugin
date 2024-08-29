@@ -8,6 +8,7 @@ Adjust to taste.
 For this example, names are:
 - `Best Ever Plugin` is the human-friendly name, and appears in menus and the Command Palette.
 - `example_plugin` is the repo name.
+Give serious thought to name selections as refactoring them becomes a real pain.
 
 Note that this addresses GitHub only. BitBucket should be a straightforward translation.
 
