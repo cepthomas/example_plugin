@@ -1,4 +1,4 @@
-# Example Sublime Text Plugin 
+# Best Ever Plugin (Example Sublime Text Plugin)
 
 This enumerates some of the content that may be needed to build a plugin suitable for
 submission to Package Control. It's primarily focused on pure python functional plugins;
@@ -46,7 +46,7 @@ While not quite as critical, it's still generally a good idea to do the same for
 minimally to provide `Preferences` for the Package - [like this](Main.sublime-menu).
 
 Finally, you can optionally include `Default.sublime-commands` to populate the Command Palette.
-Some packages prefer to use only Main and Context menus instead. Note that `Default` is 
+Some packages prefer to use only Main and Context menus instead. Note that `Default` is
 only convention; any name will work.
 
 
@@ -131,12 +131,12 @@ There are no packages like it in Package Control.
 My package is similar to ... However it should still be added because ...
 
 
-<!-- 
+<!--
 *)   Unless it definitely really needs them, they apply to the cursor's context
      and their visibility is conditional. Space in this menu is limited!
 **)  There aren't enough keys for all packages, you'd risk overriding those of other packages.
      You can put commented out suggestions in a keymap file, and/or explain how to create bindings in your README.
-***) We have hundreds of color schemes, and plenty of scopes to make any syntax work. 
+***) We have hundreds of color schemes, and plenty of scopes to make any syntax work.
 
 For bonus points also considered how the review guidelines apply to your package:
 https://github.com/wbond/package_control_channel/wiki#reviewing-a-package-addition
@@ -209,22 +209,22 @@ $APPDATA\Sublime Text
 |
 +---Installed Packages --> Installed by Sublime or via Package Control.
 |       *.sublime-package
-|       
+|
 +---Lib --> As required by Installed or User Packages.
 |   +---python33
 |   \---python38
-|               
+|
 +---Local
 |       Session.sublime_session --> Contains project history - edit with different editor to clean up.
 |       *.sublime_session --> Backups and caches.
-|       
+|
 \---Packages --> Loose packages, not from Package Control. Where you create your plugin.
-    |   
+    |
     +---Default --> To override the builtin menus, first copy them here from Default.sublime-package
                     and comment out your exclusions.
     |       Context.sublime-menu
     |       Side Bar.sublime-menu
-    |       
+    |
     +---example_plugin --> This example plugin.
     |   |   .gitattributes
     |   |   .gitignore
@@ -242,11 +242,11 @@ $APPDATA\Sublime Text
     |   |   *.sublime-syntax
     |   |   *.sublime-color-scheme
     |   |   *.sublime-keymap
-    |   |   
+    |   |
     |   \---test
     |           some_test_code.py
-    |           
-    \---User --> 
+    |
+    \---User -->
             *.sublime-settings --> User settings for installed packages.
             Context.sublime-menu --> Add stuff to the default menu.
             Main.sublime-menu --> Ditto.
