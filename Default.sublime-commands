@@ -1,15 +1,11 @@
 [
     {
-        "caption": "Best Ever Plugin: Run",
-        "command": "example_run"
+        "caption": "Best Ever Plugin: Foo",
+        "command": "example_foo"
     },
     {
-        "caption": "Best Ever Plugin: Terminal",
-        "command": "example_terminal"
-    },
-    {
-        "caption": "Best Ever Plugin: Tree",
-        "command": "example_tree"
+        "caption": "Best Ever Plugin: Bar",
+        "command": "example_bar"
     },
     {
         "caption": "Best Ever Plugin: Edit Settings",

@@ -9,24 +9,17 @@ import sublime_plugin
 
 
 #-----------------------------------------------------------------------------------
-class ExampleRunCommand(sublime_plugin.TextCommand):
+class ExampleFooCommand(sublime_plugin.TextCommand):
     '''Doc'''
 
     def run(self, edit):
-        sublime.message_dialog('Run!!')
+        sublime.message_dialog('Foo!!')
 
 
 #-----------------------------------------------------------------------------------
-class ExampleTerminalCommand(sublime_plugin.TextCommand):
+class ExampleBarCommand(sublime_plugin.TextCommand):
     '''Doc'''
 
     def run(self, edit):
-        sublime.message_dialog('Terminal!!')
+        sublime.message_dialog('Bar!!')
 
-
-#-----------------------------------------------------------------------------------
-class ExampleTreeCommand(sublime_plugin.TextCommand):
-    '''Doc'''
-
-    def run(self, edit):
-        sublime.message_dialog('Tree!!')
