@@ -14,6 +14,9 @@ Note that this addresses GitHub only. BitBucket should be a straightforward tran
 
 
 ## Installation
+
+Something like this:
+
 From the Command Palette, run `Package Control: Install Package` command.
 In the packages list, find the package name you are interested in and install it.
 
@@ -34,7 +37,9 @@ Describe the commands supplied by this package and how they are presented in men
 
 It's considered good practice to not add a Package specific `Context.sublime-menu` file
 as it clogs up the menu real estate. Either provide a file with command examples or simply describe them here.
-Suggest the entries the user can add to their own `Context.sublime-menu` files. Typical entries are:
+Suggest the entries the user can add to their own `Context.sublime-menu` files.
+
+Typical entries are:
 ``` json
 { "caption": "Run", "command": "example_run" },
 { "caption": "Terminal Here", "command": "example_terminal" },
@@ -69,7 +74,7 @@ It is assumed you have forked https://github.com/wbond/package_control_channel.
 ## Package Repository
 
 To add a package, you add an entry to one of the `package_control_channel\repository\*.json` files.
-The specific file is the one with the first letter of the `name`. In our case it would go in `b.json`
+The specific file is the one with the first letter of the human-friendly name. In our case it would go in `b.json`
 
 A basic and usually adequate repository entry is (for this example):
 ```json
@@ -79,7 +84,7 @@ A basic and usually adequate repository entry is (for this example):
     "labels": [ "best", "ever" ],
     "releases": [
         {
-            "sublime_text": ">4000",
+            "sublime_text": ">3000",
             "platforms":["windows", "linux"],
             "tags": true
         }
@@ -87,21 +92,23 @@ A basic and usually adequate repository entry is (for this example):
 },
 ```
 
-It must be placed in exact alphabetical order by `name`, and use tabs not spaces.
+It must be placed in exact alphabetical order by human-friendly name, and use tabs not spaces.
 `ChannelRepositoryTools: Test Default Channel` command will remind you of that of course.
 
 Labels should be taken from a short list of standard names. At this writing there are 1700+
 different names in use, with many being something no one will ever search on. And keep them short:
-use `debug` not `debugger` and be found.
+use `debug` not `debugger` and you can be be found. The suggested subset is listed in
+https://github.com/wbond/package_control/blob/master/example-repository.json.
 
-For power users, more options are described here:
+
+For power users, there are many more options described in
 https://github.com/wbond/package_control/blob/master/example-repository.json.
 
 
 ## Questionnaire
 
-When you execute your PR, you are presented with a questionnaire. It's probably easier to populate
-that in advance. The content is roughly this:
+When you execute your PR, you are presented with a questionnaire. It's probably easier to prep
+and populate in advance. The content is roughly this:
 ```
 <!--
 The manual review may take several days or weeks, depending on the reviewer's availability and workload.
