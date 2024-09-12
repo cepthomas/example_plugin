@@ -84,7 +84,7 @@ A basic and usually adequate repository entry is (for this example):
     "labels": [ "best", "ever" ],  // see below
     "releases": [
         {
-            "sublime_text": ">3000",  // min sublime version required
+            "sublime_text": ">=3000",  // min sublime version required
             "platforms":["windows", "linux"],  // applicability
             "tags": true  // always true for this schema
         }
