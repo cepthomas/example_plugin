@@ -1,14 +1,16 @@
 # Best Ever Plugin (Example Sublime Text Plugin)
 
-This enumerates some of the content that may be needed to build a plugin suitable for
+This identifies most of the content that is needed to build a plugin suitable for
 submission to Package Control. It's primarily focused on pure python functional plugins;
-those with binaries, syntax, and color schemes are a bit different - maybe doc later.
+those with binaries, syntax, or color schemes are a bit different - maybe later.
 Adjust to taste.
 
 For this example, names are:
-- `Best Ever Plugin` is the human-friendly name, and appears in menus and the Command Palette.
-- `example_plugin` is the repo name.
-Give serious thought to name selections as refactoring them becomes a real pain.
+- `Best Ever Plugin` is the friendly-name, and appears in menus and the Command Palette.
+- `example_plugin` is the repo-name.
+Give serious thought to name selections as refactoring them can become a real pain.
+
+Assumes ST4 but should be easily retrofitted for ST3. ST2 is right out.
 
 Note that this addresses GitHub only. BitBucket should be a straightforward translation.
 
@@ -18,11 +20,11 @@ Note that this addresses GitHub only. BitBucket should be a straightforward tran
 Something like this:
 
 From the Command Palette, run `Package Control: Install Package` command.
-In the packages list, find the package name you are interested in and install it.
+In the packages list, find the package friendly-name you are interested in and install it.
 
 ## Usage
 
-Add detail to the Overview such as how-to, images, videos, references, caveats, ...
+Add detail such as how-to, images, videos, references, caveats, ...
 
 ## Commands and Menus
 
@@ -30,20 +32,18 @@ Describe the commands supplied by this package and how they are presented in men
 
 | Command              | Description      | Args             |
 | :--------            | :-------         | :--------        |
-| example_run          | words...         | words...         |
-| example_terminal     | words...         | words...         |
-| example_tree         | words...         | words...         |
+| example_foo          | words...         | words...         |
+| example_bar          | words...         | words...         |
 
 
 It's considered good practice to not add a Package specific `Context.sublime-menu` file
 as it clogs up the menu real estate. Either provide a file with command examples or simply describe them here.
-Suggest the entries the user can add to their own `Context.sublime-menu` files.
+Suggest the entries the user can add to their own `Packages\User\Context.sublime-menu` file.
 
 Typical entries are:
 ``` json
-{ "caption": "Run", "command": "example_run" },
-{ "caption": "Terminal Here", "command": "example_terminal" },
-{ "caption": "Tree", "command": "example_tree" },
+{ "caption": "Foo", "command": "example_foo" },
+{ "caption": "Bar", "command": "example_bar" },
 ```
 
 While not quite as critical, it's still generally a good idea to do the same for the other
@@ -74,34 +74,34 @@ It is assumed you have forked https://github.com/wbond/package_control_channel.
 ## Package Repository
 
 To add a package, you add an entry to one of the `package_control_channel\repository\*.json` files.
-The specific file is the one with the first letter of the human-friendly name. In our case it would go in `b.json`
+The specific file is the one with the first letter of the friendly-name. In our case it would go in `b.json`
 
 A basic and usually adequate repository entry is (for this example):
 ```json
 {
-    "name": "Best Ever Plugin",
-    "details": "https://github.com/<user>/example_plugin",
-    "labels": [ "best", "ever" ],
+    "name": "Best Ever Plugin",  // friendly-name
+    "details": "https://github.com/<user>/example_plugin",  // github repository
+    "labels": [ "best", "ever" ],  // see below
     "releases": [
         {
-            "sublime_text": ">3000",
-            "platforms":["windows", "linux"],
-            "tags": true
+            "sublime_text": ">3000",  // min sublime version required
+            "platforms":["windows", "linux"],  // applicability
+            "tags": true  // always true for this schema
         }
     ]
 },
 ```
 
-It must be placed in exact alphabetical order by human-friendly name, and use tabs not spaces.
+It must be placed in exact alphabetical order by friendly-name, and use tabs not spaces.
 `ChannelRepositoryTools: Test Default Channel` command will remind you of that of course.
 
-Labels should be taken from a short list of standard names. At this writing there are 1700+
-different names in use, with many being something no one will ever search on. And keep them short:
-use `debug` not `debugger` and you can be be found. The suggested subset is listed in
+Labels should be taken from a short list of standard labels. At this writing there are 1700+
+different labels in use, with many being something no one will ever search on. And keep them short:
+use `debug` not `debugger` and it is more likely to be found. The minimal suggested subset is listed in
 https://github.com/wbond/package_control/blob/master/example-repository.json.
 
 
-For power users, there are many more options described in
+For power users, there are many more repository options described in
 https://github.com/wbond/package_control/blob/master/example-repository.json.
 
 
@@ -159,7 +159,7 @@ For updates to existing packages: If your package isn't using tag based releases
 ## Updating a Package
 
 To update a previously published package simply update the plugin code, push and
-tag with the new version number. No need to touch the `package_control_channel` contents.
+tag with the new version number. There is no need to touch the `package_control_channel` contents.
 Package Control will update the local user's copy on a periodic basis.
 
 Depending on the scope of the change, it may be polite to inform the user using the
@@ -179,7 +179,7 @@ Ref: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/p
 ## Package Metadata
 
 Package Control generates `package-metadata.json` which is added to the final package.
-Most fields come from your repository.json entry except as noted.
+Most fields come from your edited `package_control_channel\repository\*.json` entry except as noted.
 Note that not all fields are required and some may not be present depending on the
 repository schema the plugin was created with.
 
@@ -189,12 +189,12 @@ repository schema the plugin was created with.
     "platforms":["windows", "linux"],
     "version": "1.2.3",  // Most recent semantic version tag in the repo.
     "sublime_text": ">4000",
-    "python_version": "3.3", // From .python-version if available?
+    "python_version": "3.3", // From .python-version (if available)?
     "url": "https://github.com/cepthomas/example_plugin",
     "issues": "https://github.com/cepthomas/example_plugin/issues",
     "author": ["cepthomas"],
     "labels": ["best", "ever"],
-    // It appears dependencies was in earlier schemas and was replaced by libraries in later schemas.
+    // ? It appears dependencies was in earlier schemas and was replaced by libraries in later schemas.
     // See https://packagecontrol.io/docs/dependencies.
     "dependencies": ["???"],
     "libraries": ["???"],
@@ -205,9 +205,9 @@ repository schema the plugin was created with.
 ```
 
 
-# All The Files
+# Reference
 
-## User Data
+## User Data Files
 
 Nearly all of the interesting files for users live here.
 
@@ -222,13 +222,14 @@ $APPDATA\Sublime Text
 |   \---python38
 |
 +---Local
-|       Session.sublime_session --> Contains project history - edit with different editor to clean up.
+|       Session.sublime_session --> Contains project history - edit with a different editor to clean up.
 |       *.sublime_session --> Backups and caches.
 |
-\---Packages --> Loose packages, not from Package Control. Where you create your plugin.
+\---Packages --> Loose packages, not from Package Control. This is where you create your plugin.
     |
-    +---Default --> To override the builtin menus, first copy them here from Default.sublime-package
-                    and comment out your exclusions.
+    +---Default --> To override the built-in menus, copy them here from `Default.sublime-package`
+    |               and comment out exclusions. Warning - this is brittle when updating ST versions.
+    |       Main.sublime-menu
     |       Context.sublime-menu
     |       Side Bar.sublime-menu
     |
@@ -241,9 +242,9 @@ $APPDATA\Sublime Text
     |   |   Main.sublime-menu
     |   |   example_plugin.sublime-settings
     |   |   README.md
-    |   |   source1.py
-    |   |   source2.py
-    |   |   README.md --> This file.
+    |   |   main.py
+    |   |   commands.py
+    |   |   README.md --> You're reading it now!
     |   |   --> Could also have stuff like:
     |   |   *.tmLanguage
     |   |   *.sublime-syntax
@@ -253,18 +254,18 @@ $APPDATA\Sublime Text
     |   \---test
     |           some_test_code.py
     |
-    \---User -->
+    \---User --> Customizations
             *.sublime-settings --> User settings for installed packages.
             Context.sublime-menu --> Add stuff to the default menu.
-            Main.sublime-menu --> Ditto.
-            Side Bar.sublime-menu --> Ditto.
-            Tab Context.sublime-menu --> Ditto.
+            Main.sublime-menu --> etc.
+            Side Bar.sublime-menu --> etc.
+            Tab Context.sublime-menu --> etc.
             My.sublime-color-scheme --> Personal/custom.
             Default (Windows/Linux/OSX).sublime-keymap --> Personal/custom.
 ```
 
 
-## ST Executable Dir
+## ST Executable Files
 
 ```
 $EXEDIR\Sublime Text
