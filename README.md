@@ -8,6 +8,7 @@ Adjust to taste.
 For this example, names are:
 - `Best Ever Plugin` is the friendly-name, and appears in menus and the Command Palette.
 - `example_plugin` is the repo-name.
+
 Give serious thought to name selections as refactoring them can become a real pain.
 
 Assumes ST4 but should be easily retrofitted for ST3. ST2 is right out.
@@ -37,7 +38,7 @@ Describe the commands supplied by this package and how they are presented in men
 
 
 It's considered good practice to not add a Package specific `Context.sublime-menu` file
-as it clogs up the menu real estate. Either provide a file with command examples or simply describe them here.
+as it clogs up the context menu real estate. Either provide a file with command examples or simply describe them here.
 Suggest the entries the user can add to their own `Packages\User\Context.sublime-menu` file.
 
 Typical entries are:
@@ -107,18 +108,9 @@ https://github.com/wbond/package_control/blob/master/example-repository.json.
 
 ## Questionnaire
 
-When you execute your PR, you are presented with a questionnaire. It's probably easier to prep
+When you execute your PR, you are presented with a questionnaire. It's easier to prep
 and populate in advance. The content is roughly this:
 ```
-<!--
-The manual review may take several days or weeks, depending on the reviewer's availability and workload.
-Patience padawan!
-
-You can request a review from @packagecontrol-bot. Please ensure the reviews pass and follow any instructions.
-
-Please provide some information via this checklist, feel free to remove what't not applicable.
--->
-
 - [ ] I'm the package's author and/or maintainer.
 - [ ] I have read [the docs][1].
 - [ ] I have tagged a release with a [semver][2] version number.
@@ -136,24 +128,6 @@ My package is ...
 There are no packages like it in Package Control.
 <!-- OR -->
 My package is similar to ... However it should still be added because ...
-
-
-<!--
-*)   Unless it definitely really needs them, they apply to the cursor's context
-     and their visibility is conditional. Space in this menu is limited!
-**)  There aren't enough keys for all packages, you'd risk overriding those of other packages.
-     You can put commented out suggestions in a keymap file, and/or explain how to create bindings in your README.
-***) We have hundreds of color schemes, and plenty of scopes to make any syntax work.
-
-For bonus points also considered how the review guidelines apply to your package:
-https://github.com/wbond/package_control_channel/wiki#reviewing-a-package-addition
-
-For updates to existing packages: If your package isn't using tag based releases, please switch to tags now.
--->
-
-[1]: https://packagecontrol.io/docs/submitting_a_package
-[2]: https://semver.org
-[3]: https://www.git-scm.com/docs/gitattributes#_export_ignore
 ```
 
 ## Updating a Package
@@ -162,7 +136,7 @@ To update a previously published package simply update the plugin code, push and
 tag with the new version number. There is no need to touch the `package_control_channel` contents.
 Package Control will update the local user's copy on a periodic basis.
 
-Depending on the scope of the change, it may be polite to inform the user using the
+Depending on the scope of the change, it may be polite to describe the changes to the user using the
 https://packagecontrol.io/docs/messaging capability.
 
 
@@ -171,7 +145,8 @@ https://packagecontrol.io/docs/messaging capability.
 If you are developing more than one package at the same time, there are a couple of other
 things that need to happen. Instead of working directly on the fork and issuing a PR
 from there, you need to branch your fork for each plugin. To submit a branch, switch to it,
-run `ChannelRepositoryTools: Test Default Channel`, push, and PR.
+run `ChannelRepositoryTools: Test Default Channel`, commit, push, and PR per the Package Control
+instructions.
 
 Ref: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
 
@@ -265,7 +240,9 @@ $APPDATA\Sublime Text
 ```
 
 
-## ST Executable Files
+## Executable Files
+
+Not really pertinent but for the sake of completeness.
 
 ```
 $EXEDIR\Sublime Text
