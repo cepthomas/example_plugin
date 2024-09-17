@@ -154,6 +154,7 @@ Ref: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/p
 ## Package Metadata
 
 Package Control generates `package-metadata.json` which is added to the final package.
+This should never be created or modified by the plugin author.
 Most fields come from your edited `package_control_channel\repository\*.json` entry except as noted.
 Note that not all fields are required and some may not be present depending on the
 repository schema the plugin was created with.
