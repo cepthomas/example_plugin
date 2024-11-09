@@ -1,31 +1,31 @@
 # Best Ever Plugin (Example Sublime Text Plugin)
 
 This identifies most of the content that is needed to build a plugin suitable for
-submission to Package Control. It's primarily focused on pure python functional plugins;
-those with binaries, syntax, or color schemes are a bit different - maybe later.
+submission to Package Control. It describes a basic pure python functional plugin.
+Those with binaries, syntax, or color schemes are a bit different - TBD.
 Adjust to taste.
 
-For this example, names are:
-- `Best Ever Plugin` is the friendly-name, and appears in menus and the Command Palette.
-- `example_plugin` is the repo-name.
+For this example, primary names are:
+- `Best Ever Plugin`: the user facing friendly-name, and appears in menus, settings, command palette, etc.
+- `example_plugin`: the repo-name, other internals.
 
 Give serious thought to name selections as refactoring them can become a real pain.
 
 Assumes ST4 but should be easily retrofitted for ST3. ST2 is right out.
 
-Note that this addresses GitHub only. BitBucket should be a straightforward translation.
+Note that this assumes GitHub though BitBucket should be a straightforward translation.
 
 
 ## Installation
 
-Something like this:
+You may want to add installation steps here, maybe something like this:
 
-From the Command Palette, run `Package Control: Install Package` command.
-In the packages list, find the package friendly-name you are interested in and install it.
+*From the Command Palette, run `Package Control: Install Package` command.
+In the packages list, find the package friendly-name you are interested in and install it.*
 
 ## Usage
 
-Add detail such as how-to, images, videos, references, caveats, ...
+Add any pertinent details such as how-to, images, videos, references, caveats, ...
 
 ## Commands and Menus
 
@@ -39,9 +39,7 @@ Describe the commands supplied by this package and how they are presented in men
 
 It's considered good practice to not add a Package specific `Context.sublime-menu` file
 as it clogs up the context menu real estate. Either provide a file with command examples or simply describe them here.
-Suggest the entries the user can add to their own `Packages\User\Context.sublime-menu` file.
-
-Typical entries are:
+Suggest the entries the user can add to their own `Packages\User\Context.sublime-menu` file:
 ``` json
 { "caption": "Foo", "command": "example_foo" },
 { "caption": "Bar", "command": "example_bar" },
@@ -58,7 +56,7 @@ only convention; any name will work.
 
 ## Settings
 
-Provide a description of all settings in your `example_plugin.sublime-settings` file.
+Provide a description of all settings in your `Best Ever Plugin.sublime-settings` file.
 
 | Setting           | Description      | Options        |
 | :--------         | :-------         | :------        |
@@ -80,14 +78,14 @@ The specific file is the one with the first letter of the friendly-name. In our 
 A basic and usually adequate repository entry is (for this example):
 ```json
 {
-    "name": "Best Ever Plugin",  // friendly-name
-    "details": "https://github.com/<user>/example_plugin",  // github repository
-    "labels": [ "best", "ever" ],  // see below
+    "name": "Best Ever Plugin",                             // friendly-name
+    "details": "https://github.com/<user>/example_plugin",  // repository
+    "labels": [ "best", "ever" ],                           // see below
     "releases": [
         {
-            "sublime_text": ">=3000",  // min sublime version required
+            "sublime_text": ">=3000",          // min sublime version required
             "platforms":["windows", "linux"],  // applicability
-            "tags": true  // always true for this schema
+            "tags": true                       // always true (for this schema)
         }
     ]
 },
@@ -98,12 +96,11 @@ It must be placed in exact alphabetical order by friendly-name, and use tabs not
 
 Labels should be taken from a short list of standard labels. At this writing there are 1700+
 different labels in use, with many being something no one will ever search on. And keep them short:
-use `debug` not `debugger` and it is more likely to be found. The minimal suggested subset is listed in
+use `debug` not `debugger` and it is more likely to be found. Start with the list found in:
 https://github.com/wbond/package_control/blob/master/example-repository.json.
 
 
-For power users, there are many more repository options described in
-https://github.com/wbond/package_control/blob/master/example-repository.json.
+For power users, there are many more repository options described in the example file.
 
 
 ## Questionnaire
@@ -151,6 +148,10 @@ instructions.
 Ref: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
 
 
+# Reference
+
+Extra reading material.
+
 ## Package Metadata
 
 Package Control generates `package-metadata.json` which is added to the final package.
@@ -180,8 +181,6 @@ repository schema the plugin was created with.
 }
 ```
 
-
-# Reference
 
 ## User Data Files
 
@@ -216,7 +215,7 @@ $APPDATA\Sublime Text
     |   |   Default.sublime-commands
     |   |   LICENSE
     |   |   Main.sublime-menu
-    |   |   example_plugin.sublime-settings
+    |   |   Best Ever Plugin.sublime-settings
     |   |   README.md
     |   |   main.py
     |   |   commands.py
@@ -227,7 +226,7 @@ $APPDATA\Sublime Text
     |   |   *.sublime-color-scheme
     |   |   *.sublime-keymap
     |   |
-    |   \---test
+    |   \---tests
     |           some_test_code.py
     |
     \---User --> Customizations
