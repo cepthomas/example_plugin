@@ -15,7 +15,7 @@ SETTINGS_FILE = "example_plugin.sublime-settings"
 #-----------------------------------------------------------------------------------
 def plugin_loaded():
     '''Called per plugin instance.'''
-    print(f'plugin_loaded() {__package__}')
+    pass
 
 
 #-----------------------------------------------------------------------------------
