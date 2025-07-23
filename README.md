@@ -187,7 +187,7 @@ repository schema the plugin was created with.
 Nearly all of the interesting files for users live here.
 
 ```
-$APPDATA\Sublime Text
+<APPDATA>\Sublime Text
 |
 +---Installed Packages --> Installed by Sublime or via Package Control.
 |       *.sublime-package
@@ -216,11 +216,11 @@ $APPDATA\Sublime Text
     |   |   LICENSE
     |   |   Main.sublime-menu
     |   |   Best Ever Plugin.sublime-settings
-    |   |   README.md
+    |   |   README.mdx
     |   |   main.py
     |   |   commands.py
     |   |   README.md --> You're reading it now!
-    |   |   --> Could also have stuff like:
+    |   |   ... Could also have stuff like:
     |   |   *.tmLanguage
     |   |   *.sublime-syntax
     |   |   *.sublime-color-scheme
@@ -229,14 +229,16 @@ $APPDATA\Sublime Text
     |   \---tests
     |           some_test_code.py
     |
-    \---User --> Customizations
-            *.sublime-settings --> User settings for installed packages.
-            Context.sublime-menu --> Add stuff to the default menu.
-            Main.sublime-menu --> etc.
-            Side Bar.sublime-menu --> etc.
-            Tab Context.sublime-menu --> etc.
-            My.sublime-color-scheme --> Personal/custom.
-            Default (Windows/Linux/OSX).sublime-keymap --> Personal/custom.
+    +---User --> Customizations
+    |       *.sublime-settings --> User settings for installed packages.
+    |       Context.sublime-menu --> Add stuff to the default menu.
+    |       Main.sublime-menu --> etc.
+    |       Side Bar.sublime-menu --> etc.
+    |       Tab Context.sublime-menu --> etc.
+    |       My.sublime-color-scheme --> Personal/custom.
+    |       Default (Windows/Linux/OSX).sublime-keymap --> Personal/custom.
+    \---plugin_x --> plugin storage area
+            my.log
 ```
 
 
