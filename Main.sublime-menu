@@ -17,7 +17,7 @@
                                 "command": "edit_settings",
                                 "args":
                                 {
-                                    "base_file": "${packages}/example_plugin/example_plugin.sublime-settings",
+                                    "base_file": "${packages}/Best Ever Plugin/ExamplePlugin.sublime-settings",
                                     "default": "{\n$0\n}\n"
                                 }
                             },

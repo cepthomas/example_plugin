@@ -6,8 +6,9 @@ Those with binaries, syntax, or color schemes are a bit different - TBD.
 Adjust to taste.
 
 For this example, primary names are:
-- `Best Ever Plugin`: the user facing friendly-name, and appears in menus, settings, command palette, etc.
-- `example_plugin`: the repo-name, other internals.
+- `Best Ever Plugin`: the user facing friendly-name, name of the local clone, and appears in menus, settings, command palette, etc.
+- `ExamplePlugin`: name for internals.
+- `https://github.com/<user>/example_plugin.git`: the repo-name, can be anything.
 
 Give serious thought to name selections as refactoring them can become a real pain.
 
@@ -72,7 +73,7 @@ It is assumed you have forked https://github.com/wbond/package_control_channel.
 
 ## Package Repository
 
-To add a package, you add an entry to one of the `package_control_channel\repository\*.json` files.
+To add a package, you add an entry to one of the `package_control_channel/repository/*.json` files.
 The specific file is the one with the first letter of the friendly-name. In our case it would go in `b.json`
 
 A basic and usually adequate repository entry is (for this example):
@@ -167,9 +168,9 @@ repository schema the plugin was created with.
     "version": "1.2.3",  // Most recent semantic version tag in the repo.
     "sublime_text": ">4000",
     "python_version": "3.3", // From .python-version (if available)?
-    "url": "https://github.com/cepthomas/example_plugin",
-    "issues": "https://github.com/cepthomas/example_plugin/issues",
-    "author": ["cepthomas"],
+    "url": "https://github.com/<user>/example_plugin",
+    "issues": "https://github.com/<user>/example_plugin/issues",
+    "author": ["<user>"],
     "labels": ["best", "ever"],
     // ? It appears dependencies was in earlier schemas and was replaced by libraries in later schemas.
     // See https://packagecontrol.io/docs/dependencies.
@@ -202,24 +203,25 @@ Nearly all of the interesting files for users live here.
 |
 \---Packages --> Loose packages, not from Package Control. This is where you create your plugin.
     |
+    |   ExamplePlugin.sublime-settings -> user settings for plugin
+    |
     +---Default --> To override the built-in menus, copy them here from `Default.sublime-package`
     |               and comment out exclusions. Warning - this is brittle when updating ST versions.
     |       Main.sublime-menu
     |       Context.sublime-menu
     |       Side Bar.sublime-menu
     |
-    +---example_plugin --> This example plugin.
+    +---ExamplePlugin --> This example plugin.
     |   |   .gitattributes
     |   |   .gitignore
     |   |   .python-version
     |   |   Default.sublime-commands
-    |   |   LICENSE
     |   |   Main.sublime-menu
-    |   |   Best Ever Plugin.sublime-settings
-    |   |   README.mdx
-    |   |   main.py
+    |   |   ExamplePlugin.sublime-settings -> default settings for plugin
+    |   |   example.py
     |   |   commands.py
-    |   |   README.md --> You're reading it now!
+    |   |   README.md
+    |   |   LICENSE
     |   |   ... Could also have stuff like:
     |   |   *.tmLanguage
     |   |   *.sublime-syntax
@@ -237,8 +239,10 @@ Nearly all of the interesting files for users live here.
     |       Tab Context.sublime-menu --> etc.
     |       My.sublime-color-scheme --> Personal/custom.
     |       Default (Windows/Linux/OSX).sublime-keymap --> Personal/custom.
-    \---plugin_x --> plugin storage area
+    |
+    \---ExamplePlugin --> plugin storage area
             my.log
+            other_+-config.json
 ```
 
 
