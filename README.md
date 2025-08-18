@@ -262,6 +262,7 @@ $EXEDIR\Sublime Text
 |   python33.dll
 |   python38.dll
 |   ...
+|
 +---Lib
 |   +---python3
 |   \---python33
@@ -272,6 +273,7 @@ $EXEDIR\Sublime Text
 |           sublime.py
 |           sublime_plugin.py
 |           sublime_types.py
+|
 \---Packages --> factory defaults
         Default.sublime-package  --> Default ST internals and packages.
         *.sublime-package
