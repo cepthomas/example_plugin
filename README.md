@@ -40,7 +40,7 @@ Describe the commands supplied by this package and how they are presented in men
 
 It's considered good practice to not add a Package specific `Context.sublime-menu` file
 as it clogs up the context menu real estate. Either provide a file with command examples or simply describe them here.
-Suggest the entries the user can add to their own `Packages\User\Context.sublime-menu` file:
+Suggest the entries the user can add to their own `Packages/User/Context.sublime-menu` file:
 ``` json
 { "caption": "Foo", "command": "example_foo" },
 { "caption": "Bar", "command": "example_bar" },
@@ -157,7 +157,7 @@ Extra reading material.
 
 Package Control generates `package-metadata.json` which is added to the final package.
 This should never be created or modified by the plugin author.
-Most fields come from your edited `package_control_channel\repository\*.json` entry except as noted.
+Most fields come from your edited `package_control_channel/repository/*.json` entry except as noted.
 Note that not all fields are required and some may not be present depending on the
 repository schema the plugin was created with.
 
@@ -188,7 +188,7 @@ repository schema the plugin was created with.
 Nearly all of the interesting files for users live here.
 
 ```
-<APPDATA>\Sublime Text
+<APPDATA>/Sublime Text
 |
 +---Installed Packages --> Installed by Sublime or via Package Control.
 |       *.sublime-package
@@ -251,7 +251,7 @@ Nearly all of the interesting files for users live here.
 Not really pertinent but for the sake of completeness.
 
 ```
-$EXEDIR\Sublime Text
+$EXEDIR/Sublime Text
 |
 |   subl.exe
 |   sublime_text.exe
